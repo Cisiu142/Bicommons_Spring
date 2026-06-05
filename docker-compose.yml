@@ -8,11 +8,10 @@ services:
     ports:
       - "8085:8080"
     environment:
-      # Twardy limit pamięci: startuje z 128MB, maksymalnie zżera 256MB
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m
     networks:
-      - monitoring_network
+      - biocommons_net
 
 networks:
-  monitoring_network:
-    external: true
+  biocommons_net:
+    driver: bridge
